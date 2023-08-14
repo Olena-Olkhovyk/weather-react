@@ -1,1 +1,84 @@
-
+.Weather {
+  max-width: 35em;
+  margin: 7px auto;
+}
+.container {
+  border: 1px solid blue;
+  padding: 10px 15px 85px;
+}
+.formControl {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+input[type="search"] {
+  width: 70%;
+}
+input[type="submit"] {
+  background-color: rgba(12, 133, 233, 0.639);
+  color: rgb(14, 13, 13);
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 5px 22px;
+}
+input[type="submit"]:hover {
+  background-color: rgba(12, 133, 233, 0.7);
+}
+.city {
+  font-size: 190%;
+}
+.date,
+.description {
+  margin: 0.1rem auto;
+  text-align: center;
+  font-size: 170%;
+  font-weight: bold;
+}
+.temp-icon {
+  margin: 0.1rem auto;
+  text-align: center;
+}
+img {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  right: 2rem;
+}
+.temperature,
+.units {
+  position: relative;
+  right: 3rem;
+}
+.temperature {
+  bottom: -20px;
+  font-size: 50px;
+}
+.units {
+  position: relative;
+  bottom: 5px;
+  font-size: 19px;
+}
+.units > a {
+  font-weight: bold;
+}
+.units .active {
+  color: black;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
+.humid-wind {
+  float: right;
+  margin-right: 1rem;
+}
+li {
+  list-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 25px;
+}
+li::first-letter {
+  text-transform: capitalize;
+}
