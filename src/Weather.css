@@ -1,10 +1,10 @@
 .Weather {
-  max-width: 35em;
+  max-width: 36em;
   margin: 7px auto;
 }
 .container {
   border: 1px solid blue;
-  padding: 10px 15px 85px;
+  padding: 12px 15px 89px;
 }
 .formControl {
   width: 100%;
@@ -51,12 +51,12 @@ img {
   right: 3rem;
 }
 .temperature {
-  bottom: -20px;
+  bottom: 28px;
   font-size: 50px;
 }
 .units {
   position: relative;
-  bottom: 5px;
+  bottom: 50px;
   font-size: 19px;
 }
 .units > a {
