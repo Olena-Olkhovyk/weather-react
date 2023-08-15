@@ -11,6 +11,15 @@ root.render(
           <Weather />
         </div>
       </div>
+      <footer>
+        <a
+          href="https://github.com/Olena-Olkhovyk?tab=repositories"
+          target="_blank"
+          className="gitLink"
+        >
+          My github
+        </a>
+      </footer>
     </div>
   </React.StrictMode>
 );
