@@ -15,6 +15,7 @@ root.render(
         <a
           href="https://github.com/Olena-Olkhovyk?tab=repositories"
           target="_blank"
+          rel="noreferrer"
           className="gitLink"
         >
           My github
