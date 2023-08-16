@@ -1,5 +1,6 @@
 import "./Weather.css";
 import React, { useState } from "react";
+import Date from "./Date";
 import axios from "axios";
 
 export default function Weather() {
@@ -7,8 +8,10 @@ export default function Weather() {
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   function displayWeather(response) {
+    console.log(response.data);
     setLoaded(true);
     setWeather({
+      date: new Date(response.data.dt * 1000),
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
@@ -30,7 +33,7 @@ export default function Weather() {
   }
 
   let form = (
-    <form className="mb-3 formControl" onSubmit={handleSubmit}>
+    <form className="formControl" onSubmit={handleSubmit}>
       <input
         type="search"
         placeholder="Type a city.."
@@ -45,6 +48,9 @@ export default function Weather() {
       <div>
         {form}
         <h1 className="city">{city}</h1>
+        <h2>
+          <Date date={weather.date} />
+        </h2>
         <h2 className="description">{weather.description}</h2>
         <div className="weather-elements">
           <div className="temp-icon">
