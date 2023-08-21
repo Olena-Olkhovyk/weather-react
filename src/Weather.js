@@ -48,9 +48,6 @@ export default function Weather() {
       <div>
         {form}
         <h1 className="city">{city}</h1>
-        <p>
-          <FormattedDate date={weather.date} />
-        </p>
         <h2 className="description">{weather.description}</h2>
         <div className="weather-elements">
           <div className="temp-icon">
@@ -80,6 +77,9 @@ export default function Weather() {
       <>
         {form}
         <h1>Kyiv</h1>
+        <h2>
+          <FormattedDate date={weather.date} />
+        </h2>
         <h2 className="description">Sunny</h2>
         <div className="temp-icon">
           <img
