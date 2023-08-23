@@ -1,6 +1,7 @@
 import "./Weather.css";
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios";
 
 export default function Weather() {
@@ -8,7 +9,6 @@ export default function Weather() {
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   function displayWeather(response) {
-    console.log(response.data);
     setLoaded(true);
     setWeather({
       date: new Date(response.data.dt * 1000),
@@ -26,12 +26,14 @@ export default function Weather() {
   }
   function handleSubmit(e) {
     e.preventDefault();
+    search();
+  }
+  function search() {
     const apiKey = "4b3503b2f08a729413c4d33ef1186004";
     const units = "metric";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(displayWeather);
   }
-
   let form = (
     <form className="formControl" onSubmit={handleSubmit}>
       <input
@@ -55,15 +57,7 @@ export default function Weather() {
         <div className="weather-elements">
           <div className="temp-icon">
             <img src={weather.icon} alt={weather.description} />
-            <span className="temperature">
-              {Math.round(weather.temperature)}
-            </span>
-            <span className="units">
-              <a href="/" className="active">
-                °C{" "}
-              </a>{" "}
-              |<a href="/">°F</a>
-            </span>
+            <WeatherTemperature celsius={weather.temperature} />
           </div>
           <div className="humid-wind">
             <ul>
