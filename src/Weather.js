@@ -4,8 +4,8 @@ import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios";
 
-export default function Weather() {
-  const [city, setCity] = useState("");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   function displayWeather(response) {
@@ -17,11 +17,11 @@ export default function Weather() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       pressure: response.data.main.pressure,
+      city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
   function changeCity(e) {
-    e.preventDefault();
     setCity(e.target.value);
   }
   function handleSubmit(e) {
@@ -49,7 +49,7 @@ export default function Weather() {
     return (
       <div>
         {form}
-        <h1 className="city">{city}</h1>
+        <h1 className="city">{weather.city}</h1>
         <h2>
           <FormattedDate date={weather.date} />
         </h2>
@@ -70,33 +70,7 @@ export default function Weather() {
       </div>
     );
   } else {
-    return (
-      <>
-        {form}
-        <h1>Kyiv</h1>
-        <h2>Wendesday 20:00</h2>
-        <h2 className="description">Sunny</h2>
-        <div className="temp-icon">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-            alt="weather-icon"
-          />
-          <span className="temperature">19</span>
-          <span className="units">
-            <a href="/" className="active">
-              °C{" "}
-            </a>{" "}
-            |<a href="/">°F</a>
-          </span>
-        </div>
-        <div className="humid-wind">
-          <ul>
-            <li>Humidity:61%</li>
-            <li>Wind:0.45km/h</li>
-            <li>Pressure:1011Pa</li>
-          </ul>
-        </div>
-      </>
-    );
+    search();
+    return "Loading";
   }
 }

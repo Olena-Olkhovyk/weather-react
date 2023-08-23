@@ -8,7 +8,7 @@ root.render(
     <div className="App">
       <div className="Weather">
         <div className="container">
-          <Weather />
+          <Weather defaultCity="Kyiv" />
         </div>
       </div>
       <footer>
